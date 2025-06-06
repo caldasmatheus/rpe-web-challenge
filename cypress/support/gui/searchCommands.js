@@ -1,3 +1,11 @@
+Cypress.Commands.add('typeSearchInput', (text) => {
+   cy.get('form input[placeholder="busque aqui seu produto"]').type(text);
+});
+
+Cypress.Commands.add('clickSearchButton', () => {
+   cy.get('form button[type="submit"]').click();
+});
+
 Cypress.Commands.add('collectProductInfo', () => {
    cy.get('.ProductGrid_vertical__TCnHK .ProductCard_productInfo__WAMw3').each(($el) => {
       const name = $el.find('.ProductCard_productName__mwx7Y').text().trim();

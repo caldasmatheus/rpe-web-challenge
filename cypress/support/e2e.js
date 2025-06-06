@@ -1,2 +1,2 @@
-import './gui/commands'
+import './gui/searchCommands'
 import './gui/helpers'
