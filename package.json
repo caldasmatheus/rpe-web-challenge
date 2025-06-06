@@ -1,0 +1,16 @@
+{
+  "name": "my-cypress-project",
+  "version": "1.0.0",
+  "description": "A Cypress project for end-to-end testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^14.4.1",
+    "lodash": "^4.17.21"
+  },
+  "author": "",
+  "license": "ISC"
+}
