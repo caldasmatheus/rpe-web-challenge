@@ -26,11 +26,6 @@ class searchPage {
       return this;
    }
 
-   coletarProdutos() {
-      cy.collectProductInfo();
-      return this;
-   }
-
    navegarParaProximaPagina() {
       return cy.navigateToNextPage().then((hasNext) => {
          return hasNext;
