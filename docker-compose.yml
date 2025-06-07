@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  cypress:
+    build: .
+    volumes:
+      - ./cypress/results:/app/cypress/results
+    environment:
+      - CYPRESS_BASE_URL=https://www.americanas.com.br/
+    command: cypress run

@@ -12,23 +12,6 @@ Cypress.Commands.add('clickSearchButton', () => {
    cy.get('form button[type="submit"]').click();
 });
 
-/*Cypress.Commands.add('collectProductInfo', () => {
-   cy.get('.ProductGrid_vertical__TCnHK .ProductCard_productInfo__WAMw3').each(($el) => {
-      const name = $el.find('.ProductCard_productName__mwx7Y').text().trim();
-
-      const priceText = $el.find('.ProductCard_productPrice__XFEqu').text();
-      const priceNumber = parseFloat(
-         priceText.replace('R$', '').replace('.', '').replace(',', '.')
-      );
-
-      const stars = $el.find('.avg-rating').text();
-
-      if (priceNumber > 3500) {
-         cy.log(`● Nome: ${name} Preço: R$ ${priceNumber.toFixed(2)} Estrelas: ${stars}`);
-      }
-   });
-});*/
-
 Cypress.Commands.add('collectProductInfo', () => {
    cy.window().then((win) => {
       if (!win.collectedProducts) {
@@ -100,7 +83,6 @@ Cypress.Commands.add('waitForFiltersAndSelectPrice', () => {
 });
 
 Cypress.Commands.add('coletarProdutosFinal', () => {
-   // Essa rotina coleta os produtos só quando o botão "ver mais produtos" sumiu
    cy.window().then((win) => {
       if (!win.collectedProducts) {
          win.collectedProducts = [];
