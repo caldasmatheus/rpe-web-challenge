@@ -1,13 +1,13 @@
 import searchPage from '../../support/page_objects/searchPage';
 import { validarPeloMenosUmProduto, validarProdutosVisiveis, validarNenhumProdutoEncontrado, validarPrecosDosProdutos } from '../../support/page_objects/assertions';
+import { setupTest } from '../../support/helpers';
 
 describe('Busca de Smart TVs na Americanas', () => {
-   it('Deve buscar Smart TVs e filtrar por preço', () => {
-
-      cy.window().then((win) => {
-         win.collectedProducts = [];
-      });
-
+   setupTest(
+      'Deve buscar Smart TVs e filtrar por preço',
+      'critical',
+      'Este teste verifica a busca de Smart TVs e o filtro por preço.'
+   )(() => {
       searchPage
          .visit()
          .buscarProduto('Smart TV')
@@ -32,6 +32,5 @@ describe('Busca de Smart TVs na Americanas', () => {
       validarProdutosVisiveis();
       validarNenhumProdutoEncontrado();
       validarPrecosDosProdutos();
-
    });
 });

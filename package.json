@@ -8,7 +8,10 @@
     "cy:run": "cypress run"
   },
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.34.0",
     "cypress": "^14.4.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "lodash": "^4.17.21"
   },
   "author": "",

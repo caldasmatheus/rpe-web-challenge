@@ -1,2 +1,6 @@
 import './gui/searchCommands'
-import './gui/helpers'
+import '@shelex/cypress-allure-plugin';
+
+import { setupTest } from './helpers';
+
+global.setupTest = setupTest;

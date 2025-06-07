@@ -9,6 +9,12 @@ cypress/videos/*
 cypress/downloads/*
 cypress.env.json
 
+# Allure
+allure-results
+allure-report
+reports
+screenshots
+
 ### Node ###
 # Logs
 logs
