@@ -1,45 +1,59 @@
-# My Cypress Project
+# desafio-rpe-web-test
 
-This project is a sample Cypress setup for end-to-end testing. It includes various configurations and example tests to help you get started with Cypress.
+### Descrição
 
-## Project Structure
+Este projeto contém o código responsável por testar funcionalmente o site da [Americanas](https://www.americanas.com.br/).
 
+- [Cypress](https://www.cypress.io/)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Node v22.14.0](https://nodejs.org/pt)
+
+### Clone e Execução do projeto
+
+Para clonar o projeto siga os seguintes passos:
+
+No terminal:
 ```
-my-cypress-project
-├── cypress
-│   ├── e2e
-│   │   └── sample.cy.js      # Sample end-to-end test
-│   ├── fixtures
-│   │   └── example.json       # JSON fixture for mock data
-│   └── support
-│       ├── commands.js        # Custom commands for tests
-│       └── e2e.js             # Global configurations for end-to-end tests
-├── cypress.config.js          # Cypress configuration file
-├── package.json                # npm configuration file
-└── README.md                   # Project documentation
+git clone git@github.com:caldasmatheus/rpe-web-challenge.git
 ```
 
-## Setup Instructions
+No contexto onde o projeto foi clonado:
+```
+cd rpe-web-challenge
+```
 
-1. **Install Dependencies**: Run the following command to install Cypress and other dependencies:
-   ```
-   npm install
-   ```
+Na raiz do projeto:
+```
+npm i
+```
 
-2. **Open Cypress**: After installation, you can open Cypress using:
-   ```
-   npx cypress open
-   ```
+### Tipos de Execução dos Testes
 
-3. **Run Tests**: You can run the tests in the Cypress Test Runner or through the command line.
+Para executar o projeto **rpe-web-challenge** siga as etapas:
 
-## Usage
+* Exemplo de execução dos testes no modo Interativo, abra o terminal no VS Code e execute o comando:
 
-- The `cypress/e2e/sample.cy.js` file contains example tests that you can modify to suit your application.
-- Use the `cypress/fixtures/example.json` file to provide mock data for your tests.
-- Extend Cypress functionality by adding custom commands in `cypress/support/commands.js`.
-- Global configurations for your tests can be set in `cypress/support/e2e.js`.
+```
+npx cypress open
+```
 
-## Contributing
+* Exemplo de execução dos testes no modo Headless, abra o terminal no VS Code e execute o comando:
 
-Feel free to fork the repository and submit pull requests for any improvements or additional features.
+```
+npx cypress run
+```
+
+### Contribuições
+
+Para contribuir com o projeto, siga estas etapas:
+
+1. Crie um *branch*: *`git checkout -b <branch_name>`*;
+2. Faça suas alterações e confirme-as: *`git commit -m '<commit_message>'`*;
+3. Envie a *branch* local para o repositório remoto: *`git push origin <branch_name>`*;
+4. Crie o *pull request*.
+
+:exclamation: **Observação**: Como alternativa, consulte a documentação do GitHub em "[Criando um Pull Request](https://docs.github.com/pt/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)".
+
+### Contato
+
+Em caso de dúvidas: <raimundo.matheus@dcx.ufpb.br>. :incoming_envelope:
