@@ -4,6 +4,7 @@
 
 Este projeto contém o código responsável por testar funcionalmente o site da [Americanas](https://www.americanas.com.br/).
 
+- [Allure Reports](https://www.extentreports.com/)
 - [Cypress](https://www.cypress.io/)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Node v22.14.0](https://nodejs.org/pt)
@@ -37,10 +38,18 @@ Para executar o projeto **rpe-web-challenge** siga as etapas:
 npx cypress open
 ```
 
-* Exemplo de execução dos testes no modo Headless, abra o terminal no VS Code e execute o comando:
+* Exemplo de execução dos testes no modo Headless, abra o terminal e execute o comando:
 
 ```
 npx cypress run
+```
+
+* Exemplo de execução dos testes no modo Headless e gerar allure-results, abra o terminal e execute o comando:
+
+```
+npx cypress run
+npx allure generate allure-results --clean -o allure-report
+npx allure open allure-report
 ```
 
 ### Contribuições
