@@ -26,7 +26,7 @@ describe('Busca de Smart TVs na Americanas', () => {
          return navegar();
       });
 
-      cy.coletarProdutosFinal();
+      searchPage.coletarProdutosFinal();
 
       validarPeloMenosUmProduto();
       validarProdutosVisiveis();

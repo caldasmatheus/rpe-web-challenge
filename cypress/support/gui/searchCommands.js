@@ -24,9 +24,7 @@ Cypress.Commands.add('collectProductInfo', () => {
             priceText.replace('R$', '').replace('.', '').replace(',', '.')
          );
          const stars = $el.find('.avg-rating').text();
-         // Log
          cy.log(`● Nome: ${name} Preço: R$ ${priceNumber.toFixed(2)} Estrelas: ${stars}`);
-         // Armazena se preço > 3500
          if (priceNumber > 3500) {
             win.collectedProducts.push({ name, price: priceNumber, stars });
          }
@@ -52,11 +50,9 @@ Cypress.Commands.add('navigateToNextPage', () => {
       if (hasButton) {
          return cy.get('.Pagination_paginationButton__r_JxW', { timeout: 30000 }).then(($btn) => {
             if ($btn.is(':visible')) {
-               cy.wrap($btn).focus().as('nextBtn');
-
+               cy.wrap($btn).focus().scrollIntoView().as('nextBtn');
                cy.get('@nextBtn').click({ force: true });
                cy.wait(2000);
-
                return cy.get('.ProductGrid_vertical__TCnHK .ProductCard_productInfo__WAMw3', { timeout: 30000 }).should('be.visible')
                   .then(() => true);
             } else {
@@ -70,7 +66,7 @@ Cypress.Commands.add('navigateToNextPage', () => {
 });
 
 Cypress.Commands.add('waitForFiltersAndSelectPrice', () => {
-   cy.get('[data-testid="fs-accordion-panel"]')
+   cy.get('[data-testid="fs-accordion-panel"]', { timeout: 30000 }).eq(5)
       .contains('button', 'ver tudo').focus()
       .should('be.visible')
       .click()
@@ -82,7 +78,7 @@ Cypress.Commands.add('waitForFiltersAndSelectPrice', () => {
       .blur();
 });
 
-Cypress.Commands.add('coletarProdutosFinal', () => {
+Cypress.Commands.add('collectProductsFinal', () => {
    cy.window().then((win) => {
       if (!win.collectedProducts) {
          win.collectedProducts = [];
@@ -92,7 +88,6 @@ Cypress.Commands.add('coletarProdutosFinal', () => {
          const priceText = $el.find('.ProductCard_productPrice__XFEqu').text();
          const priceNumber = parseFloat(priceText.replace('R$', '').replace('.', '').replace(',', '.'));
          const stars = $el.find('.avg-rating').text();
-
          if (priceNumber > 3500) {
             win.collectedProducts.push({ name, price: priceNumber, stars });
          }
