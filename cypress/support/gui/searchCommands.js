@@ -50,7 +50,7 @@ Cypress.Commands.add('navigateToNextPage', () => {
       if (hasButton) {
          return cy.get('.Pagination_paginationButton__r_JxW', { timeout: 30000 }).then(($btn) => {
             if ($btn.is(':visible')) {
-               cy.wrap($btn).focus().scrollIntoView().as('nextBtn');
+               cy.wrap($btn).focus().scrollIntoView({ position: 'center' }).as('nextBtn');
                cy.get('@nextBtn').click({ force: true });
                cy.wait(2000);
                return cy.get('.ProductGrid_vertical__TCnHK .ProductCard_productInfo__WAMw3', { timeout: 30000 }).should('be.visible')
@@ -60,6 +60,7 @@ Cypress.Commands.add('navigateToNextPage', () => {
             }
          });
       } else {
+         cy.get('.Pagination_paginationContainer__Qo7Ap .Pagination_paginationInfo__ZkxZX').scrollIntoView({ position: 'center' });
          return null;
       }
    });
@@ -89,6 +90,7 @@ Cypress.Commands.add('collectProductsFinal', () => {
          const priceNumber = parseFloat(priceText.replace('R$', '').replace('.', '').replace(',', '.'));
          const stars = $el.find('.avg-rating').text();
          if (priceNumber > 3500) {
+            cy.task('log', `● Nome: ${name} Preço: R$ ${priceNumber.toFixed(2)} Estrelas: ${stars}`);
             win.collectedProducts.push({ name, price: priceNumber, stars });
          }
       });

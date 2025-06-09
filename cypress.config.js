@@ -8,10 +8,17 @@ module.exports = defineConfig({
          allureWriter(on, config);
          console.log('Allure Writer configurado');
 
-         on('after:spec', (spec, results) => {
+         /*on('after:spec', (spec, results) => {
             console.log('after:spec chamado');
             console.log('spec:', spec);
             console.log('results:', results);
+         });*/
+
+         on('task', {
+            log(message) {
+               console.log(message);
+               return null;
+            }
          });
 
          return config;
