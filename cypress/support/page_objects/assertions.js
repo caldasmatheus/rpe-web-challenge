@@ -20,9 +20,9 @@ export function validarPrecosDosProdutos() {
    cy.getCollectedProducts().then((produtosFiltrados) => {
       const produtosValidos = produtosFiltrados.filter(p => p.price > 3500);
       expect(produtosValidos.length, `Quantidade de produtos com preço > R$ 3500`).to.be.gte(1);
-      cy.log(`Quantidade de produtos com preço > R$ 3500: ${produtosValidos.length}`);
+      cy.task('log', `Quantidade de produtos com preço > R$3500: ${produtosValidos.length}`);
       produtosValidos.forEach((produto) => {
-         expect(produto.price, `Preço do ${produto.name} deve ser > R$ 3500`).to.be.gte(3500);
+         expect(produto.price, `Preço do ${produto.name} deve ser > R$3500`).to.be.gte(3500);
       });
    });
 }
