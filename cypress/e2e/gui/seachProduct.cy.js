@@ -3,13 +3,17 @@ import { validarPeloMenosUmProduto, validarProdutosVisiveis, validarNenhumProdut
 import { setupTest } from '../../support/helpers';
 
 describe('Busca de Smart TVs na Americanas', () => {
+
+   before(() => {
+      cy.visit('/');
+   });
+
    setupTest(
-      'Deve buscar Smart TVs e filtrar por preço',
-      'critical',
-      'Este teste verifica a busca de Smart TVs e o filtro por preço.'
+      'CT001 - Deve buscar Smart TVs, filtrar por preço e exibir no console produtos com preço acima de R$ 3500',
+      'critico',
+      'Validar a funcionalidade de busca e filtragem de produtos Smart TVs dentro de uma faixa de preço específica e exibir informações de produtos com valores acima de R$3500'
    )(() => {
       searchPage
-         .visit()
          .buscarProduto('Smart TV')
          .esperarCarregar()
          .filtrarPorPreco();
@@ -26,7 +30,7 @@ describe('Busca de Smart TVs na Americanas', () => {
          return navegar();
       });
 
-      cy.coletarProdutosFinal();
+      searchPage.coletarProdutosFinal();
 
       validarPeloMenosUmProduto();
       validarProdutosVisiveis();

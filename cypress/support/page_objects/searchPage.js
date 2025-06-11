@@ -31,6 +31,11 @@ class searchPage {
          return hasNext;
       });
    }
+
+   coletarProdutosFinal() {
+      cy.collectProductsFinal();
+      return this;
+   }
 }
 
 export default new searchPage();
